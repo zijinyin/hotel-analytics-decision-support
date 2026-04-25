@@ -319,32 +319,53 @@ A high-level project workflow is:
 │   ├── train_cancellation.py
 │   ├── train_customer_value.py
 │   ├── score_cancellation.py
-│   ├── score_customer_value.py
-│   └── load_to_rds.py                # optional if included
+│   └── score_customer_value.py
 │
 ├── live_app/
 │   ├── app.py
+│   ├── requirements.txt
 │   ├── sample_data/
 │   │   ├── sample_bookings.csv
 │   │   └── sample_customers.csv
 │   └── utils/
 │       ├── cancellation_inference.py
 │       ├── customer_value_inference.py
-│       └── recommendation.py
+│       ├── recommendation.py
+│       ├── db.py
+│       └── s3_loader.py
 │
 ├── notebooks/
 │   ├── hotel_cancellation_prediction.ipynb
 │   └── hotel_customer_value_classification.ipynb
 │
 ├── artifacts/
-│   ├── feature_list.pkl
-│   ├── customer_feature_list.pkl
-│   ├── xgb_best_model.pkl
-│   └── xgb_customer_value_model.pkl
+│   ├── cancellation/
+│   │   ├── eda_plots.png
+│   │   ├── evaluation_plots.png
+│   │   ├── feature_importance.png
+│   │   ├── feature_list.pkl
+│   │   ├── model_comparison.png
+│   │   └── xgb_best_model.pkl
+│   │
+│   └── customer_value/
+│       ├── customer_feature_list.pkl
+│       ├── eda_customer_value.png
+│       ├── evaluation_customer_value.png
+│       ├── feature_importance_customer.png
+│       ├── model_comparison_customer.png
+│       └── xgb_customer_value_model.pkl
 │
-├── docs/
-│   ├── architecture_diagram.png
-│   └── demo_notes.md
+├── data/
+│   ├── README.md
+│   ├── raw/
+│   │   ├── HotelCustomersDataset.xlsx
+│   │   └── hotel_bookings.csv
+│   ├── sample_inputs/
+│   │   ├── sample_bookings.csv
+│   │   └── sample_customers.csv
+│   └── sample_outputs/
+│       ├── cancellation_predictions.csv
+│       └── customer_value_predictions.csv
 │
-└── data/
-    └── README.md
+└── docs/
+    └── architecture_diagram.png
